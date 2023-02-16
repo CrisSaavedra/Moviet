@@ -1,0 +1,19 @@
+.size-error-container{
+    height: 60vh;
+}
+
+.error-container {
+    margin-top: 40vh;
+    max-width: 30%;
+    border: 1px solid var(--border-alert);
+    background-color: var(--background-alert);
+}
+
+.size-error-container h1{
+    color: var(--white);
+}
+
+.size-error-container p{
+    /* color: var(--dark-purple-3); */
+    color: var(--white);
+}

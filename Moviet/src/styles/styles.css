@@ -1,0 +1,84 @@
+:root {
+    --PrincipalFont: 'Fira Sans', sans-serif;
+
+    --russian-violet: #3a015cff;
+    --palatinate: #4f0147ff;
+    --dark-purple: #35012cff;
+    --dark-purple-2: #290025ff;
+    --dark-purple-3: #11001cff;
+
+    /* borders */
+
+    --background-alert: rgba(218, 95, 206, 0.734);
+    --border-alert : rgba(240, 85, 214, 0.876);
+
+    --black: rgb(9, 9, 10);
+    --white: #ffffffc3;
+
+    --hover-a-white : rgba(255, 255, 255, 0.49);
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+
+}
+
+*,
+*:before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--PrincipalFont);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    background: linear-gradient(var(--dark-purple-3) 0%, var(--black) 80%);
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+
+/*GLOBALS*/
+
+.container {
+    max-width: 1200rem;
+    /*Maximo tomara mil 200 pixeles */
+    width: 90%;
+    /* tomara el 90% de la pantalla*/
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    font-family: var(--PrincipalFont);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 4.4rem;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+h3 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+  
+    text-decoration: none;
+}

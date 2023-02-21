@@ -1,12 +1,13 @@
-import React from 'react'
+import { Movies } from "../component/movies/Movies"
 
-import {NavBar} from '../component/navbar/NavBar';
 
 export const Home = () => {
   return (
     <>
-      <NavBar/>
 
+      <Movies/>
+
+    
     </>
   )
 }

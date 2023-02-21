@@ -1,18 +1,15 @@
 import React from 'react'
-import { Navigate, Route, Routes } from "react-router-dom";
-import { Home } from './Home';
+import { Navigate, Outlet } from "react-router-dom";
+import { NavBar } from '../component/navbar/NavBar';
+
 
 
 export const Root = () => {
   return (
     <>
-
-      <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='*' element={<Navigate to="/home" />} />
-      </Routes>
-
-        {/* //footer */}
+      <NavBar />
+      <Outlet />
+     
     </>
   )
 }

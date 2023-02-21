@@ -1,0 +1,20 @@
+.container-movies{
+    max-width: 98%;
+    margin: 0 auto;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card-Movie{
+    margin: 2rem 2rem;
+}
+
+.title{
+    background-color: black;
+   max-width: 16rem;
+
+}
+.title h3{
+    font-size: 1.5rem;
+}

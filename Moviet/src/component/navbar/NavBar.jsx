@@ -1,9 +1,20 @@
 import './style.css'
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
 
 export const NavBar = () => {
+
+    const [activeLink, setActiveLink] = useState('home');
+  
+
+    const changeStateOnClick = (state) => {
+        setActiveLink(state)
+    }
+
+
+
     return (
-        <nav className="navbar navbar-expand-lg nav-container ">
+        <nav className="navbar navbar-expand nav-container s">
             <div className="container-fluid col-md-auto " >
                 <h3 className="navbar-brand" >Moviet</h3>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +23,10 @@ export const NavBar = () => {
                 <div className="collapse navbar-collapse " id="navbarNav">
                     <ul className="navbar-nav ">
                         <li className="nav-item">
-                            <Link className="nav-link " aria-current="page" href="#">Home</Link>
+                            <Link className={activeLink === 'home'? 'active nav-link' : ' nav-link'} onClick={() => changeStateOnClick('home') } aria-current="page" to="/home">Home</Link>
                         </li>
                         <li className="nav-item ">
-                            <Link className="nav-link" href="#">Favorites</Link>
+                            <Link className={activeLink === 'favorite' ? 'active nav-link' : 'nav-link'} to="/favorites" onClick={() => changeStateOnClick('favorite') } >Favorites</Link>
                         </li>
                     </ul>
 

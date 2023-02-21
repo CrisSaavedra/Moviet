@@ -16,7 +16,7 @@ import {
 import './styles/styles.css';
 import './styles/normalize.css'
 
-import { Favorites, Home, Root } from './routes';
+import { Favorites, Discover, Root } from './routes';
 import ErrorPage from './component/errorpage/ErrorPage';
 
 
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
-        element: <Home />,
+        path: "/discover",
+        element: <Discover />,
       },
       {
         path: "/favorites",
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
 
   {
     path: "*",
-    element: <Navigate to="/home" replace={true} />,
+    element: <Navigate to="/discover" replace={true} />,
 
   },
 ]);

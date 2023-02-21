@@ -1,7 +1,7 @@
 import { Movies } from "../component/movies/Movies"
 
 
-export const Home = () => {
+export const Discover = () => {
   return (
     <>
 

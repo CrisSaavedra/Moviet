@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export const NavBar = () => {
 
-    const [activeLink, setActiveLink] = useState('home');
+    const [activeLink, setActiveLink] = useState('discover');
   
 
     const changeStateOnClick = (state) => {
@@ -23,7 +23,7 @@ export const NavBar = () => {
                 <div className="collapse navbar-collapse " id="navbarNav">
                     <ul className="navbar-nav ">
                         <li className="nav-item">
-                            <Link className={activeLink === 'home'? 'active nav-link' : ' nav-link'} onClick={() => changeStateOnClick('home') } aria-current="page" to="/home">Home</Link>
+                            <Link className={activeLink === 'discover'? 'active nav-link' : ' nav-link'} onClick={() => changeStateOnClick('discover') } aria-current="page" to="/home">Discover</Link>
                         </li>
                         <li className="nav-item ">
                             <Link className={activeLink === 'favorite' ? 'active nav-link' : 'nav-link'} to="/favorites" onClick={() => changeStateOnClick('favorite') } >Favorites</Link>

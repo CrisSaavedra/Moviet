@@ -1,20 +1,122 @@
-.container-movies{
-    max-width: 98%;
+.container-movies {
+    max-width: 160rem;
     margin: 0 auto;
-    background-color: aqua;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.card-Movie{
+
+.card-Movie {
     margin: 2rem 2rem;
 }
 
-.title{
+.title {
     background-color: black;
-   max-width: 16rem;
+    max-width: 16rem;
 
 }
-.title h3{
+
+.title h3 {
     font-size: 1.5rem;
+}
+
+.card-Movie .img img {
+    height: 26rem;
+    /* border: 1px solid rgba(255, 255, 255, 0.128); */
+
+}
+
+.card-Movie .img {
+    opacity: 1;
+    box-shadow: 0 4px 8px 0 rgba(197, 169, 169, 0.099), 0 6px 20px 0 rgba(128, 54, 135, 0.436);
+
+}
+
+
+
+.container-title {
+    text-align: center;
+}
+
+.container-title h2 {
+    color: var(--white);
+    margin: 7rem auto;
+    font-size: 8rem;
+    font-weight: 800;
+}
+
+.movie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    position: absolute;
+    background-color: rgba(8, 8, 8, 0.769);
+    width: 0rem;
+    height: 0rem;
+    transition: all 0.24s ease-in;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.add img {
+    width: 0rem;
+    transition: all 0.27s ease-in;
+}
+
+.movie:hover>.buttons {
+    visibility: visible;
+    width: 17.4rem;
+    height: 26rem;
+}
+
+.movie:hover .add img {
+    width: 4rem;
+}
+
+.filter-violet {
+    /* filter: invert(70%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); */
+    filter:  invert(18%) sepia(100%) saturate(6579%) hue-rotate(272deg) brightness(105%) contrast(120%);
+}
+
+.filter-grey {
+    filter: invert(42%) sepia(0%) saturate(0%) hue-rotate(108deg) brightness(93%) contrast(85%);
+}
+
+/* buttons  back next*/
+
+.next-back-button{
+    display: flex;
+   
+    justify-content: space-around;
+    height: 15rem;
+    align-items: center;   
+    max-width: 280rem;
+    margin: 0 auto;
+}
+
+.offVisible{
+    visibility: hidden;
+}
+
+.next-back-button button{
+    background-color:var(--russian-violet);
+    color: var(--white);
+    font-size: 2rem;
+    width: 20rem;
+    border: 1px solid #ffffff10;
+}
+
+.next-back-button button:hover{
+    filter: none;
+    opacity: 0.7;
+    background-color:var(--russian-violet) !important;
+    color: var(--white);
+    border: 1px solid #ffffff2e;
 }

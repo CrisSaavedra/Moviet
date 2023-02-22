@@ -8,7 +8,9 @@ import './styles/style.css'
 
 
 
-export const Movies = () => {
+export const Movies = ({type}) => {
+
+
 
     const [page, setPage] = useState(1);
     const [movies, setMovies] = useState([]);
@@ -19,7 +21,7 @@ export const Movies = () => {
     };
 
     const copyImages = async () => {
-        const mov = await getMovies('discover', page); // await por que getgift devuelve una promesa!!
+        const mov = await getMovies('discover', page);
         setMovies(mov);
         setIsLoading(false);
     }
@@ -36,28 +38,28 @@ export const Movies = () => {
     return (
 
         <>
-            <div className='container-title'>
-                <h2>Discover</h2>
-            </div>
-            {
-
-            }
+            <div className='container-res'>
 
 
-            {
-                isLoading ? <Loading /> : <LoadImgMovies movies={movies} />
-            }
-
-            <div className='next-back-button'>
-
-                <div className={page > 1 ? 'back-button' : 'back-button offVisible'}>
-                    <button type="button" className="btn btn-lg" onClick={() => selectPage(-1)}>Back</button>
+                <div className='container-title'>
+                    <h2>Discover</h2>
                 </div>
 
+                {
+                    isLoading ? <Loading /> : <LoadImgMovies movies={movies} />
+                }
 
-                <div className='next-button'>
-                    <button type="button" className="btn  btn-lg" onClick={() => selectPage(1)}>Next</button>
+                <div className='next-back-button'>
 
+                    <div className={page > 1 ? 'back-button' : 'back-button offVisible'}>
+                        <button type="button" className="btn btn-lg" onClick={() => selectPage(-1)}>Back</button>
+                    </div>
+
+
+                    <div className='next-button'>
+                        <button type="button" className="btn  btn-lg" onClick={() => selectPage(1)}>Next</button>
+
+                    </div>
                 </div>
             </div>
 

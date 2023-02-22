@@ -12,22 +12,27 @@ export const LoadImgMovies = ({ movies }) => {
             <div className="container-movies">
                 {
                     movies.map(movie => {
-                        return <div className="card-Movie" key={movie.id}>
-                            <div className="movie">
-                                <div className="buttons">
-                                    <div className="add">
-                                        <a href="#">
-                                            <img src={heart} alt="buton" width='20rem'  className={like ? 'filter-violet' : 'filter-grey'}/>
-                                        </a>
+                        if (movie) {
+                            return <div className="card-Movie" key={movie.id}>
+                                <div className="movie">
+                                    <div className="buttons">
+                                        <div className="add">
+                                            <a href="#">
+                                                <img src={heart} alt="buton" width='20rem' className={like ? 'filter-violet' : 'filter-grey'} />
+                                            </a>
+
+                                        </div>
 
                                     </div>
-                                   
-                                </div>
-                                <div className="img">
-                                    <img src={movie.img} alt="movie img" />
+                                    <div className="img">
+                                        <img src={movie.img} alt="movie img" />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
+                        }
+
+
 
                     })
                 }

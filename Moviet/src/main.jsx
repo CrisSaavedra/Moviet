@@ -16,7 +16,7 @@ import {
 import './styles/styles.css';
 import './styles/normalize.css'
 
-import { Favorites, Discover, Root } from './routes';
+import { Favorites, Discover, Root, Search } from './routes';
 import ErrorPage from './component/errorpage/ErrorPage';
 
 
@@ -33,17 +33,21 @@ const router = createBrowserRouter([
       {
         path: "/favorites",
         element: <Favorites />,
+      },
+      {
+        path: "/search/:movie",
+        element: <Search/>,
       }
-      
+
     ],
 
   },
 
-  {
-    path: "*",
-    element: <Navigate to="/discover" replace={true} />,
+  // {
+  //   path: "*",
+  //   element: <Navigate to="/discover" replace={true} />,
 
-  },
+  // },
 ]);
 
 

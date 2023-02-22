@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getMovies } from '../../api/getMovies';
 import { Loading } from '../loaderMovies/Loading';
 import { LoadImgMovies } from '../loadimg/LoadImgMovies';
@@ -8,21 +9,28 @@ import './styles/style.css'
 
 
 
-export const Movies = ({type}) => {
+export const Movies = ({ type }) => {
 
 
-
+    const name = useParams().movie;
     const [page, setPage] = useState(1);
-    const [movies, setMovies] = useState([]);
+    const [totalPages, settotalPages] = useState(0);
+    const [moviesTotal, setMoviesTotal] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const selectPage = (num) => {
-        setPage(page + num);
+        if (page < totalPages && page > 0) {
+            setPage(page + num);
+           
+        }
+
     };
 
     const copyImages = async () => {
-        const mov = await getMovies('discover', page);
-        setMovies(mov);
+    
+        const { movies, total_pages } = await getMovies(type, page, name);   
+        setMoviesTotal(movies);
+        settotalPages(total_pages);
         setIsLoading(false);
     }
 
@@ -31,7 +39,9 @@ export const Movies = ({type}) => {
 
         copyImages()
 
-    }, [page]);
+    }, [page, name]);
+
+
 
 
 
@@ -42,25 +52,32 @@ export const Movies = ({type}) => {
 
 
                 <div className='container-title'>
-                    <h2>Discover</h2>
+                    {
+                        type === 'discover' ? <h2>Discover</h2> : <h2>Search</h2>
+                    }
                 </div>
 
                 {
-                    isLoading ? <Loading /> : <LoadImgMovies movies={movies} />
+                    isLoading ? <Loading /> : <LoadImgMovies movies={moviesTotal} />
                 }
 
-                <div className='next-back-button'>
+                {
+                    totalPages > 1 ? 
+                    <div className='next-back-button'>
+                        <div className={page > 1 ? 'back-button' : 'back-button offVisible'}>
+                            <button type="button" className="btn btn-lg" onClick={() => selectPage(-1)}>Back</button>
+                        </div>
 
-                    <div className={page > 1 ? 'back-button' : 'back-button offVisible'}>
-                        <button type="button" className="btn btn-lg" onClick={() => selectPage(-1)}>Back</button>
+
+                        <div className='next-button'>
+                            <button type="button" className="btn  btn-lg" onClick={() => selectPage(1)}>Next</button>
+
+                        </div>
                     </div>
 
+                    : null
+                }
 
-                    <div className='next-button'>
-                        <button type="button" className="btn  btn-lg" onClick={() => selectPage(1)}>Next</button>
-
-                    </div>
-                </div>
             </div>
 
 

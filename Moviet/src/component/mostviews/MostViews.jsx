@@ -2,7 +2,7 @@ import './styles/style.css';
 import heart from '../../shareImg/heart.svg';
 import { useEffect, useState } from 'react';
 import { getMovies } from '../../api/getMovies';
-import { LoadMostViews } from '../loadMostView/LoadMostViews';
+import { LoadMoviesHome } from '../loadMoviesHome/LoadMoviesHome';
 import { Loading } from '../loaderMovies/Loading';
 
 export const MostViews = () => {
@@ -30,19 +30,23 @@ export const MostViews = () => {
 
     return (
         <>
-            <div className='title-mostview'>
-                <h3>The most viewed</h3>
-            </div>
-            <div className="mostview">
-                <div className="mostview-container">
-
-                    {
-                        
-                        isLoading ? <Loading /> : <LoadMostViews movies={moviesTotal} />
-                    }
-
+            <div className='cont-most'>
+                <div className='title-mostview'>
+                    <h3>THE MOST VIEWED</h3>
                 </div>
+                <div className="mostview">
+                    <div className="mostview-container">
+
+                        {
+
+                            isLoading ? <Loading /> : <LoadMoviesHome movies={moviesTotal} />
+                        }
+
+                    </div>
+                </div>
+
             </div>
         </>
+
     )
 }

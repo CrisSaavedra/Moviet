@@ -1,22 +1,35 @@
 .container-presentation {
    display: flex;
+   flex-direction: column;
+   align-items: center;
    justify-content: center;
+   margin-top: 20rem;
 }
 
 .text-title{
-   margin-top: 10rem;
+   margin-top: 15rem;
    display: flex;
    flex-direction: column;
    align-items: center;
 }
 
 
-.text-title h3{
-   font-size: 5rem;
+.text-title span{
+   font-size: 3.5rem;
+   color: rgba(132, 87, 146, 0.983);
 }
 
 .text-title p{
-   font-size: 3rem;
-   max-width: 60rem;
+   font-size: 2.3rem;
+   max-width: 40rem;
    text-align: center;
+   color: var(--white);
+   font-weight: 400;
+}
+
+.border-home{
+   margin-top: 3rem;
+   height:1px;
+   width: 70rem;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }

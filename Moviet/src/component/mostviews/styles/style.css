@@ -1,20 +1,101 @@
-.mostview{
-    width: 100rem;
-    height: 60rem;
-    margin: auto;
-    overflow: hidden;
+.title-mostview h3 {
+    color: var(--white);
+    font-size: 4.5rem;
+    font-weight: 400;
 }
 
-.mostview .mostview-container{
+.cont-most {
     display: flex;
-    animation: scroll 40s linear infinite;
-    width: calc(200px*14);
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
 }
 
-.mostview .mostview-movie{
-    background-size: 25rem;
+.mostview {
+    width: 100%;
+    max-width: 200rem;
+    overflow: hidden;
+
+}
+
+.mostview-container {
+    width: 1100rem;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    animation: slide 40s linear infinite;
+
+
+}
+
+.mostview-movie {
+
     background-position: center;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 40rem;
+    background-size: 20rem;
+    box-shadow: 0 4px 8px 0 rgba(197, 169, 169, 0.099), 0 6px 20px 0 rgba(128, 54, 135, 0.436);
+    height: 75%;
+    width: 20rem;
+    margin: auto 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+@keyframes slide {
+    0% {
+
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(-4800px);
+
+    }
+}
+
+
+/* button */
+
+.mostview-likebutton {
+    position: absolute;
+    background-color: rgba(8, 8, 8, 0.769);
+    width: 0rem;
+    height: 0rem;
+    transition: all 0.24s ease-in;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.mostview-likebutton img {
+    width: 0%;
+    transition: all 0.27s ease-in;
+    margin: 0 auto;
+}
+
+
+.mostview-movie:hover>.mostview-likebutton {
+    visibility: visible;
+    width: 20rem;
+    height: 30rem;
+}
+
+.mostview-movie .mostview-likebutton img {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.filter-violet {
+    /* filter: invert(70%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%); */
+    filter:  invert(18%) sepia(100%) saturate(6579%) hue-rotate(272deg) brightness(105%) contrast(120%);
+}
+
+.filter-grey {
+    filter: invert(42%) sepia(0%) saturate(0%) hue-rotate(108deg) brightness(93%) contrast(85%);
 }

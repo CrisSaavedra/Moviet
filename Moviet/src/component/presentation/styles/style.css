@@ -1,0 +1,22 @@
+.container-presentation {
+   display: flex;
+   justify-content: center;
+}
+
+.text-title{
+   margin-top: 10rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+.text-title h3{
+   font-size: 5rem;
+}
+
+.text-title p{
+   font-size: 3rem;
+   max-width: 60rem;
+   text-align: center;
+}

@@ -1,0 +1,20 @@
+.mostview{
+    width: 100rem;
+    height: 60rem;
+    margin: auto;
+    overflow: hidden;
+}
+
+.mostview .mostview-container{
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: calc(200px*14);
+}
+
+.mostview .mostview-movie{
+    background-size: 25rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 40rem;
+}

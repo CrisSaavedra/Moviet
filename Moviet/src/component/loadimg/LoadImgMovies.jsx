@@ -1,10 +1,11 @@
 
 import { useState } from 'react';
-import heart from './assets/heart.svg';
+import heart from '../../shareImg/heart.svg';
 
 export const LoadImgMovies = ({ movies }) => {
 
     const [like, setLike] = useState(true);
+
 
     return (
 
@@ -24,8 +25,8 @@ export const LoadImgMovies = ({ movies }) => {
                                         </div>
 
                                     </div>
-                                    <div className="img">
-                                        <img src={movie.img} alt="movie img" />
+                                        <div className="img" style={{ backgroundImage: `url(${movie.img})` }}>
+                                        
                                     </div>
                                 </div>
                             </div>

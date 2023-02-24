@@ -1,5 +1,4 @@
-import { key } from "localforage";
-import { useState } from "react";
+
 
 const URL = 'https://api.themoviedb.org/3/'
 const KEY = '?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4'
@@ -8,20 +7,15 @@ const PAGE = '&page='
 const SEARCH = '&query='
 
 //https://api.themoviedb.org/3/discover/movie?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4&page=1 discover //movie
-//https://api.themoviedb.org/3/search/movie?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4&query=batman  //search movie
+//https://api.themoviedb.org/3/search/movie?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4&query=batman&page=1   //search movie
 
 
 
-export const getMovies = async (type_fetch, number, name = '') => {
-  //type_fetch = discover / search
-  const url = type_fetch === 'discover' ?
-  URL + type_fetch + '/movie' + KEY + PAGE + number : URL + type_fetch + '/movie' + KEY + SEARCH + name + PAGE + number 
+export const getMovies = async (request) => {
 
-  const { results, total_pages } = await fetch(url)
+  const { results, total_pages } = await fetch(request)
     .then(response => response.json())
     .then(data => data);
-
-
 
   const movies = results.map(res => {
     if (res.poster_path === null) {

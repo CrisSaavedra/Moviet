@@ -19,27 +19,48 @@ export const Movies = ({ type }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     const selectPage = (num) => {
+       
+
         if (page < totalPages && page > 0) {
             setPage(page + num);
-           
+
         }
 
     };
 
     const copyImages = async () => {
-    
-        const { movies, total_pages } = await getMovies(type, page, name);   
-        setMoviesTotal(movies);
-        settotalPages(total_pages);
-        setIsLoading(false);
+        
+        if (type === 'discover') {
+            let req = `https://api.themoviedb.org/3/discover/movie?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4&page=${page}`;
+            const { movies, total_pages } = await getMovies(req);
+            setMoviesTotal(movies);
+            settotalPages(total_pages);
+            setIsLoading(false);
+
+        } else {
+            let req = `https://api.themoviedb.org/3/search/movie?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4&query=${name}&page=${page}`
+            const { movies, total_pages } = await getMovies(req);
+            setMoviesTotal(movies);
+            settotalPages(total_pages);
+            setIsLoading(false);
+
+        }
+
     }
 
+    useEffect(() => {
+
+        setPage(1);
+
+    }, [name]);
 
     useEffect(() => {
 
         copyImages()
 
     }, [page, name]);
+
+
 
 
 
@@ -62,20 +83,20 @@ export const Movies = ({ type }) => {
                 }
 
                 {
-                    totalPages > 1 ? 
-                    <div className='next-back-button'>
-                        <div className={page > 1 ? 'back-button' : 'back-button offVisible'}>
-                            <button type="button" className="btn btn-lg" onClick={() => selectPage(-1)}>Back</button>
+                    totalPages > 1 ?
+                        <div className='next-back-button'>
+                            <div className={page > 1 ? 'back-button' : 'back-button offVisible'}>
+                                <button type="button" className="btn btn-lg" onClick={() => selectPage(-1)}>Back</button>
+                            </div>
+
+
+                            <div className='next-button'>
+                                <button type="button" className="btn  btn-lg" onClick={() => selectPage(1)}>Next</button>
+
+                            </div>
                         </div>
 
-
-                        <div className='next-button'>
-                            <button type="button" className="btn  btn-lg" onClick={() => selectPage(1)}>Next</button>
-
-                        </div>
-                    </div>
-
-                    : null
+                        : null
                 }
 
             </div>

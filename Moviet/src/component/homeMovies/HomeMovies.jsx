@@ -5,7 +5,7 @@ import { getMovies } from '../../api/getMovies';
 import { LoadMoviesHome } from '../loadMoviesHome/LoadMoviesHome';
 import { Loading } from '../loaderMovies/Loading';
 
-export const MostViews = () => {
+export const HomeMovies = ({url,name}) => {
 
     const [moviesTotal, setMoviesTotal] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -13,8 +13,8 @@ export const MostViews = () => {
 
     const copyImages = async () => {
 
-        let req = `https://api.themoviedb.org/3/movie/top_rated?api_key=b810f50a3a5c617eb3f42a2c5bc7a4c4`
-        const { movies } = await getMovies(req);
+        
+        const { movies } = await getMovies(url);
         setMoviesTotal(movies);
         setIsLoading(false);
         return movies;
@@ -32,7 +32,10 @@ export const MostViews = () => {
         <>
             <div className='cont-most'>
                 <div className='title-mostview'>
-                    <h3>THE MOST VIEWED</h3>
+                    {
+                         name === 'view' ? <h3>THE MOST VIEWED</h3> : <h3>POPULAR</h3> 
+                    }
+                  
                 </div>
                 <div className="mostview">
                     <div className="mostview-container">

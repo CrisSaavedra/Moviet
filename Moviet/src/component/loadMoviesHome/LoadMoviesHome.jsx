@@ -5,7 +5,7 @@ import heart from '../../shareImg/heart.svg';
 export const LoadMoviesHome = ({ movies }) => {
 
 
-    const [like, setLike] = useState(true);
+    const [like, setLike] = useState(false);
 
 
     return (

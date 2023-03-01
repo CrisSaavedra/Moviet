@@ -2,13 +2,14 @@
     color: var(--white);
     font-size: 4.5rem;
     font-weight: 400;
+    
 }
 
 .cont-most {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 10rem;
 }
 
 .mostview {
@@ -23,7 +24,7 @@
     height: 400px;
     display: flex;
     align-items: center;
-    animation: slide 40s linear infinite;
+    animation: slide 150s linear infinite;
 
 
 }

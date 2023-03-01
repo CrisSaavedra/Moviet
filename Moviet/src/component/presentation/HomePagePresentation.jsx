@@ -7,7 +7,7 @@ export const HomePagePresentation = () => {
       <div className='text-title'>
         <p><span>Hi and welcome</span>, Here you can find the movie you are looking for and add it to your likes :)</p>
       </div>
-      <div className='border-home'></div>
+     
 
     </div>
   )

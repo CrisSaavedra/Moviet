@@ -4,6 +4,7 @@
    align-items: center;
    justify-content: center;
    margin-top: 0rem;
+   margin-bottom: 12.2rem;
 }
 
 .text-title{
@@ -41,12 +42,12 @@
    background-position: rem 5rem;
    background-repeat: no-repeat;
    background-size: 100%;
-   box-shadow: 400px -60px 600px 90px rgb(17, 0, 26) inset; 
-   opacity: 0.5;
-   margin-top: 5rem;
+   box-shadow: 200px -300px 300px 80px rgb(15, 2, 22) inset,-200px -200px 300px 80px rgb(15, 2, 22) inset,200px 10px 300px 30px rgb(89, 49, 116) inset;
+   opacity: 0.8;
+   margin-top: 12.8rem;
    position: absolute;
-   width: 160rem;
-   height: 55rem;
-
+   width: 140rem;
+   height: 66rem;
+   
 }
 

@@ -12,12 +12,13 @@
    flex-direction: column;
    align-items: center;
    z-index: 900;
+   
 }
 
 
 .text-title span{
    font-size: 3.5rem;
-   color: rgba(158, 37, 195, 0.983);
+   color: rgba(134, 62, 156, 0.983);
 }
 
 .text-title p{
@@ -41,7 +42,7 @@
    background-repeat: no-repeat;
    background-size: 100%;
    box-shadow: 350px 200px 600px 90px rgb(15, 1, 23) inset; 
-   opacity: 0.6;
+   opacity: 0.4;
    margin-top: 5rem;
    position: absolute;
    width: 160rem;

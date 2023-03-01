@@ -41,8 +41,8 @@
    background-position: rem 5rem;
    background-repeat: no-repeat;
    background-size: 100%;
-   box-shadow: 350px 200px 600px 90px rgb(15, 1, 23) inset; 
-   opacity: 0.4;
+   box-shadow: 400px -60px 600px 90px rgb(17, 0, 26) inset; 
+   opacity: 0.5;
    margin-top: 5rem;
    position: absolute;
    width: 160rem;

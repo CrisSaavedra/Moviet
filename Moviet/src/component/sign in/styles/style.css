@@ -1,0 +1,73 @@
+.background-singin {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(32, 26, 33, 0.418);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container-signin {
+    position: absolute;
+    width: 50rem;
+    height: 40rem;
+    /* background-color: var(--palatinate); */
+    background-color: rgb(79, 21, 87);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3%;
+    box-shadow: 0px 0px 2px 2px rgba(123, 94, 121, 0.162);
+}
+
+.out-button {
+    margin-top: 2rem;
+    margin-left: 42rem;
+    font-weight: 400;
+    color: var(--white);
+    font-size: 3rem;
+}
+
+.out-button a{
+    color: var(--white);
+}
+
+.out-button a:hover{
+    color: var(--hover-a-white);
+}
+
+.title-signin h3 {
+    color: var(--white);
+    margin-top: 3rem;
+    font-weight: 800;
+}
+
+.inputs-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 20rem;
+}
+
+.inputs-container input {
+    width: 35rem;
+    color: var(--white);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    outline: none;
+    background: transparent;
+    font-size: 2rem;
+}
+
+.button-container button{
+    background: transparent ;
+    border: 1px solid rgb(26, 128, 134);
+    color: rgb(26, 128, 134);
+    font-size: 2.4rem;
+    margin-right: 25.5rem ;
+}

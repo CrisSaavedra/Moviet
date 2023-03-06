@@ -15,7 +15,7 @@
     width: 50rem;
     height: 40rem;
     /* background-color: var(--palatinate); */
-    background-color: rgb(79, 21, 87);
+    background: linear-gradient(rgb(79, 21, 87) 0% , rgb(14, 14, 14) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,19 +49,22 @@
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     height: 20rem;
 }
 
 .inputs-container input {
     width: 35rem;
     color: var(--white);
-    margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid var(--white);
     outline: none;
     background: transparent;
     font-size: 2rem;
+    margin-top: 3rem;
+}
+
+.inputs-container input:nth-child(2){
+    margin-top: 5rem;
 }
 
 .button-container button{
@@ -70,4 +73,13 @@
     color: rgb(26, 128, 134);
     font-size: 2.4rem;
     margin-right: 25.5rem ;
+}
+
+
+
+.error-msg {
+    margin: 0;
+    color: rgb(75, 151, 142);
+    font-size: 1.5rem;
+    
 }

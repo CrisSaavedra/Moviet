@@ -7,18 +7,22 @@ import { CreateAccount } from '../createAccount/CreateAccount';
 export const NavBar = () => {
 
     const [activeLink, setActiveLink] = useState('home');
-    const [login, setLogin] = useState(true);
+    const [login, setLogin] = useState(false);
     const [sign, setSign] = useState(false);
     const [create, setCreate] = useState(false);
 
     const navigate = useNavigate();
 
     const changeStateSing = () => {
-        setSign(!sign)
+        setSign(!sign);
     }
 
     const changeStateCreate = () => {
-        setCreate(!create)
+        setCreate(!create);
+    }
+
+    const changeStateLogin = () => {
+        setLogin(true);
     }
 
     const onInputChange = (e) => {
@@ -44,11 +48,11 @@ export const NavBar = () => {
     return (
         <>
             {
-                sign ? <SignIn changeStateSing={changeStateSing} /> : null
+                sign ? <SignIn changeStateSing={changeStateSing} changeStateLogin = {changeStateLogin}/> : null
             }
 
             {
-                create ? <CreateAccount changeStateCreate={changeStateCreate} /> : null
+                create ? <CreateAccount changeStateCreate={changeStateCreate} changeStateLogin = {changeStateLogin} /> : null
             }
 
             <nav className="navbar navbar-expand nav-container">

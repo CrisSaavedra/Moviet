@@ -2,16 +2,23 @@ import './style.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { SignIn } from '../sign in/SignIn';
+import { CreateAccount } from '../createAccount/CreateAccount';
 
 export const NavBar = () => {
 
     const [activeLink, setActiveLink] = useState('home');
+    const [login, setLogin] = useState(true);
     const [sign, setSign] = useState(false);
+    const [create, setCreate] = useState(false);
 
     const navigate = useNavigate();
 
     const changeStateSing = () => {
         setSign(!sign)
+    }
+
+    const changeStateCreate = () => {
+        setCreate(!create)
     }
 
     const onInputChange = (e) => {
@@ -25,7 +32,7 @@ export const NavBar = () => {
         }
     }
 
-
+  
 
 
     const changeStateOnClick = (state) => {
@@ -37,7 +44,11 @@ export const NavBar = () => {
     return (
         <>
             {
-               sign ? <SignIn changeStateSing={changeStateSing} /> : null
+                sign ? <SignIn changeStateSing={changeStateSing} /> : null
+            }
+
+            {
+                create ? <CreateAccount changeStateCreate={changeStateCreate} /> : null
             }
 
             <nav className="navbar navbar-expand nav-container">
@@ -48,22 +59,39 @@ export const NavBar = () => {
 
                     <div className="collapse navbar-collapse " id="navbarNav">
                         <ul className="navbar-nav ">
-                            <li className="nav-item">
-                                <a className= 'nav-link' onClick={() => {changeStateOnClick('')
-                            setSign(!sign)}} aria-current="page">SIGN IN</a>
-                            </li>
-                            <li className="nav-item">
-                                <Link className={activeLink === 'create' ? 'active nav-link' : ' nav-link'} onClick={() => changeStateOnClick('create')} aria-current="page" to="/create-account">CREATE ACCOUNT</Link>
-                            </li>
+
+                            {
+                                !login ? <><li className="nav-item">
+                                    <a className='nav-link' onClick={() => {
+                                        changeStateOnClick('')
+                                        setSign(!sign)
+                                    }} aria-current="page">SIGN IN</a>
+                                </li>
+                                    <li className="nav-item">
+                                        <a className='nav-link' onClick={() => {
+                                            changeStateOnClick('')
+                                            setCreate(!create)
+                                        }} aria-current="page">CREATE ACCOUNT</a>
+                                    </li></> : null
+                            }
+
                             <li className="nav-item">
                                 <Link className={activeLink === 'discover' ? 'active nav-link' : ' nav-link'} onClick={() => changeStateOnClick('discover')} aria-current="page" to="/discover">DISCOVER</Link>
                             </li>
-                            <li className="nav-item ">
-                                <Link className={activeLink === 'favorite' ? 'active nav-link' : 'nav-link'} to="/favorites" onClick={() => changeStateOnClick('favorite')} >FAVORITES</Link>
-                            </li>
+                            {
+                                login ? <>
+                                    <li className="nav-item ">
+                                        <Link className={activeLink === 'favorite' ? 'active nav-link' : 'nav-link'} to="/favorites" onClick={() => changeStateOnClick('favorite')} > MY FAVORITES</Link>
+                                    </li>
+                                    <li className="nav-item ">
+                                        <Link className='nav-link' to='/' onClick={() => {setLogin(false); changeStateOnClick('')}} > LOGOUT</Link>
+                                    </li>
+                                </> : null
+                            }
+
                         </ul>
 
-                         <input className="form-control " type="search" placeholder="Search" aria-label="Search" onKeyDown={onInputChange} />
+                        <input className="form-control " type="search" placeholder="Search" aria-label="Search" onKeyDown={onInputChange} />
 
 
                     </div>

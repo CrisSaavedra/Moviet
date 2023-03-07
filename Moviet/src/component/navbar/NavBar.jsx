@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import { SignIn } from '../sign in/SignIn';
 import { CreateAccount } from '../createAccount/CreateAccount';
+import userImg from '../../shareImg/user.svg';
 
 export const NavBar = () => {
 
@@ -10,6 +11,13 @@ export const NavBar = () => {
     const [login, setLogin] = useState(false);
     const [sign, setSign] = useState(false);
     const [create, setCreate] = useState(false);
+    const [user, setUser] = useState({
+        login: false,
+        username: '',
+        uid: '',
+        idMovies: []
+    });
+
 
     const navigate = useNavigate();
 
@@ -36,7 +44,7 @@ export const NavBar = () => {
         }
     }
 
-  
+
 
 
     const changeStateOnClick = (state) => {
@@ -48,11 +56,11 @@ export const NavBar = () => {
     return (
         <>
             {
-                sign ? <SignIn changeStateSing={changeStateSing} changeStateLogin = {changeStateLogin}/> : null
+                sign ? <SignIn changeStateSing={changeStateSing} setUser={setUser} /> : null
             }
 
             {
-                create ? <CreateAccount changeStateCreate={changeStateCreate} changeStateLogin = {changeStateLogin} /> : null
+                create ? <CreateAccount changeStateCreate={changeStateCreate} changeStateLogin={changeStateLogin} /> : null
             }
 
             <nav className="navbar navbar-expand nav-container">
@@ -65,7 +73,7 @@ export const NavBar = () => {
                         <ul className="navbar-nav ">
 
                             {
-                                !login ? <><li className="nav-item">
+                                !user.login ? <><li className="nav-item">
                                     <a className='nav-link' onClick={() => {
                                         changeStateOnClick('')
                                         setSign(!sign)
@@ -83,17 +91,18 @@ export const NavBar = () => {
                                 <Link className={activeLink === 'discover' ? 'active nav-link' : ' nav-link'} onClick={() => changeStateOnClick('discover')} aria-current="page" to="/discover">DISCOVER</Link>
                             </li>
                             {
-                                login ? <>
+                                user.login ? <>
                                     <li className="nav-item ">
                                         <Link className={activeLink === 'favorite' ? 'active nav-link' : 'nav-link'} to="/favorites" onClick={() => changeStateOnClick('favorite')} > MY FAVORITES</Link>
                                     </li>
                                     <li className="nav-item ">
-                                        <Link className='nav-link' to='/' onClick={() => {setLogin(false); changeStateOnClick('')}} > LOGOUT</Link>
+                                        <Link className='nav-link' to='/' onClick={() => { setUser({ login: false }); changeStateOnClick('') }} > LOGOUT</Link>
                                     </li>
                                 </> : null
                             }
 
                         </ul>
+
 
                         <input className="form-control " type="search" placeholder="Search" aria-label="Search" onKeyDown={onInputChange} />
 
@@ -101,6 +110,14 @@ export const NavBar = () => {
                     </div>
 
                 </div>
+                {
+                    user.login ? <div className='nameUser'>
+                        <img src={userImg} alt="userimg" width={25} />
+                        <h3>{user.username}</h3>
+                    </div>
+                        : null
+                }
+
             </nav>
         </>
 

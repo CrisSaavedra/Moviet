@@ -31,7 +31,7 @@
 }
 
 .mostview-movie {
-
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: 20rem;
@@ -91,6 +91,7 @@
 .mostview-movie .mostview-likebutton img {
     width: 20%;
     margin: 0 auto;
+   
 }
 
 .filter-violet {

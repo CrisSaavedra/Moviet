@@ -1,6 +1,6 @@
 .nav-container {
     background-color: var(--dark-purple);
-
+   
 
 }
 
@@ -9,6 +9,7 @@
     padding-right: 2rem !important;
     color: var(--white);
     font-weight: 600;
+
 }
 
 .nav-container input {
@@ -34,13 +35,13 @@
     box-shadow: 0 0 10px #719ece85;
 }
 
-.name-page{
+.name-page {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.name-page a{
+.name-page a {
     font-size: 5rem;
     padding-right: 2rem;
     font-weight: 800;
@@ -58,4 +59,24 @@
 }
 
 
+.nameUser {
+    position: absolute;
+    display: flex;
+    margin-right: 5rem;
+    width: 35rem;
+    justify-content: end;
+    left: 75%;
+    top: 2.9rem;;
+}
 
+.nameUser img{
+    margin-right: 1rem;
+    filter: invert(100%) sepia(3%) saturate(866%) hue-rotate(229deg) brightness(121%) contrast(100%);
+    
+}
+
+.nameUser h3 {
+    font-size: 2.2rem;
+    color: rgb(115, 43, 149);
+    font-weight: 600;
+}

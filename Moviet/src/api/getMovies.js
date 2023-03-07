@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 
 const URL = 'https://api.themoviedb.org/3/'
@@ -13,9 +14,12 @@ const SEARCH = '&query='
 
 export const getMovies = async (request) => {
 
-  const { results, total_pages } = await fetch(request)
-    .then(response => response.json())
-    .then(data => data);
+  // const { results, total_pages } = await fetch(request)
+  //   .then(response => response.json())
+  //   .then(data => data);
+
+  const { results, total_pages } = await axios.get(request)
+    .then(res => res.data);
 
   const movies = results.map(res => {
     if (res.poster_path === null) {

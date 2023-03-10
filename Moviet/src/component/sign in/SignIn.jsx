@@ -3,28 +3,32 @@ import { getUser } from '../../api/getUser';
 import { signinValidate } from '../../helpers/signinValidate';
 import './styles/style.css'
 
-export const SignIn = ({ changeStateSing,setUser }) => {
+export const SignIn = ({ changeStateSing, setUser }) => {
 
     const [error, setError] = useState('noterror');
     const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
 
-    const validateInfo = async() => {
+    const validateInfo = async () => {
         const validate = signinValidate(mail, password, setError);
         if (!validate) {
             setError('noterror');
-        }else{
-           const {ok, username, uid, idMovies} = await getUser(mail, password)
-           if(ok){
-            setUser({
-                login:ok,
-                username,
-                uid,
-                idMovies
-            })
-            changeStateSing(false);
-           }
-            
+        } else {
+
+            const { ok,username, uid, idMovies } = await getUser(mail, password)
+            if (ok) {
+                localStorage.setItem('uid' ,uid)
+                setUser({
+                    login:true,
+                    username,
+                    uid,
+                    idMovies
+                })
+                changeStateSing(false);
+            } else {
+                setError('THE EMAIL OR PASSWORD IS NOT VALID')
+            }
+
         }
     }
 

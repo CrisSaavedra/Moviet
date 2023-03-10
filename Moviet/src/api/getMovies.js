@@ -14,10 +14,6 @@ const SEARCH = '&query='
 
 export const getMovies = async (request) => {
 
-  // const { results, total_pages } = await fetch(request)
-  //   .then(response => response.json())
-  //   .then(data => data);
-
   const { results, total_pages } = await axios.get(request)
     .then(res => res.data);
 
@@ -29,6 +25,7 @@ export const getMovies = async (request) => {
       id: res.id,
       title: res.original_title,
       img: IMG_PATH + res.poster_path,
+      like: false,
     })
 
   })

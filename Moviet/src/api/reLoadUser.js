@@ -1,27 +1,21 @@
 import axios from "axios";
+const baseURL = 'http://127.0.0.1:4001/api/auth/reload'
 
-
-const baseURL = 'http://127.0.0.1:4001/api/auth'
-
-
-export const getUser = async (mail, password) => {
-
-
+export const reLoadUser = async(setUser,userId) => {
+  
     const { ok, username, uid, idMovies } = await axios.post(baseURL, {
-        email: mail,
-        password,
+        _id: userId
     }).then(res => res.data)
         .catch(error => {
-            return ({
+           return {
                 ok: false
-            })
+           }
         })
 
-    return ({
-        ok,
+    setUser({
+        login: ok,
         username,
         uid,
         idMovies
     })
-
 }

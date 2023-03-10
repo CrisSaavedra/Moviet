@@ -5,18 +5,12 @@ import { SignIn } from '../sign in/SignIn';
 import { CreateAccount } from '../createAccount/CreateAccount';
 import userImg from '../../shareImg/user.svg';
 
-export const NavBar = () => {
+export const NavBar = ({setUser,user}) => {
 
     const [activeLink, setActiveLink] = useState('home');
-    const [login, setLogin] = useState(false);
     const [sign, setSign] = useState(false);
     const [create, setCreate] = useState(false);
-    const [user, setUser] = useState({
-        login: false,
-        username: '',
-        uid: '',
-        idMovies: []
-    });
+   
 
 
     const navigate = useNavigate();
@@ -28,10 +22,7 @@ export const NavBar = () => {
     const changeStateCreate = () => {
         setCreate(!create);
     }
-
-    const changeStateLogin = () => {
-        setLogin(true);
-    }
+  
 
     const onInputChange = (e) => {
         let rep = String(e.target.value);
@@ -42,6 +33,12 @@ export const NavBar = () => {
             e.target.value = '';
             navigate(nav);
         }
+    }
+
+    const onLogOut = () => {
+        setUser({ login: false });
+        changeStateOnClick('');
+        localStorage.clear();
     }
 
 
@@ -96,7 +93,7 @@ export const NavBar = () => {
                                         <Link className={activeLink === 'favorite' ? 'active nav-link' : 'nav-link'} to="/favorites" onClick={() => changeStateOnClick('favorite')} > MY FAVORITES</Link>
                                     </li>
                                     <li className="nav-item ">
-                                        <Link className='nav-link' to='/' onClick={() => { setUser({ login: false }); changeStateOnClick('') }} > LOGOUT</Link>
+                                        <Link className='nav-link' to='/' onClick={onLogOut } > LOGOUT</Link>
                                     </li>
                                 </> : null
                             }
